@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Card, Col, Image, ListGroup, Row } from "react-bootstrap";
+import { Breadcrumb, Card, Col, Image, ListGroup, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Rating } from "../components";
 import products from "../products";
@@ -8,9 +8,12 @@ const ProductPage = ({ match }) => {
   const product = products.find((p) => p._id === match.params.id);
   return (
     <Fragment>
-      <Link className="btn btn-light my-3" to={"/"}>
-        Go Back
-      </Link>
+      <Breadcrumb>
+        <Breadcrumb.Item>
+          <Link to={"/"}>Home</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active>{product.name}</Breadcrumb.Item>
+      </Breadcrumb>
       <Row>
         <Col md={6}>
           <Image src={product.image} alt={product.name} fluid />
@@ -48,13 +51,13 @@ const ProductPage = ({ match }) => {
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                <button
-                  className="btn btn-block btn-dark"
-                  type="button"
-                  disabled={product.countInStock <= 0}
-                >
-                  Add To Cart
-                </button>
+                  <button
+                    className="btn btn-block btn-dark"
+                    type="button"
+                    disabled={product.countInStock <= 0}
+                  >
+                    Add To Cart
+                  </button>
                 </Row>
               </ListGroup.Item>
             </ListGroup>

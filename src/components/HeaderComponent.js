@@ -25,13 +25,16 @@ const HeaderComponent = () => {
                 <i className="fas fa-user"></i> Login
               </Nav.Link>
             </LinkContainer>
+            <LinkContainer to={"/register"}>
+              <Nav.Link>
+                <i class="fas fa-user-plus"></i> Register
+              </Nav.Link>
+            </LinkContainer>
             <NavDropdown title="My Profile" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Orders</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Logout
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
