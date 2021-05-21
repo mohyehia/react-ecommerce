@@ -1,9 +1,9 @@
-main{
+main {
   min-height: 80vh;
 }
-.rating span{
+.rating span {
   margin: 0.1rem;
 }
-h3.card-text{
+h3.card-text {
   padding: 1rem 0;
 }

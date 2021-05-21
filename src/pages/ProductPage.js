@@ -1,11 +1,19 @@
-import React, { Fragment } from "react";
+import axios from "axios";
+import React, { Fragment, useEffect, useState } from "react";
 import { Breadcrumb, Card, Col, Image, ListGroup, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Rating } from "../components";
-import products from "../products";
 
 const ProductPage = ({ match }) => {
-  const product = products.find((p) => p._id === match.params.id);
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await axios.get(`/api/v1/products/${match.params.id}`);
+      setProduct(data);
+    }
+    fetchProduct();
+  }, [match.params.id])
   return (
     <Fragment>
       <Breadcrumb>
@@ -16,7 +24,7 @@ const ProductPage = ({ match }) => {
       </Breadcrumb>
       <Row>
         <Col md={6}>
-          <Image src={product.image} alt={product.name} fluid />
+          <Image src={product.imageUrl} alt={product.name} fluid />
         </Col>
         <Col md={3}>
           <ListGroup variant="flush">
@@ -45,7 +53,7 @@ const ProductPage = ({ match }) => {
                 <Row>
                   <Col>Status: </Col>
                   <Col>
-                    {product.countInStock > 0 ? "In Stock" : "Out Of Stock"}
+                    {product.stock?.inStock > 0 ? "In Stock" : "Out Of Stock"}
                   </Col>
                 </Row>
               </ListGroup.Item>
@@ -54,7 +62,7 @@ const ProductPage = ({ match }) => {
                   <button
                     className="btn btn-block btn-dark"
                     type="button"
-                    disabled={product.countInStock <= 0}
+                    disabled={product.stock?.inStock <= 0}
                   >
                     Add To Cart
                   </button>
