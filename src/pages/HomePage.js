@@ -20,7 +20,7 @@ const HomePage = () => {
         loading ? (<LoaderComponent />) : error ? (<MessageComponent variant='danger'>{error}</MessageComponent>) :
           (<Row>
             {products.map((product) => (
-              <Col sm={12} md={6} lg={4} xl={3} key={product.id}>
+              <Col sm={12} md={6} lg={4} xl={3} key={product.productId}>
                 <ProductComponent product={product} />
               </Col>
             ))}

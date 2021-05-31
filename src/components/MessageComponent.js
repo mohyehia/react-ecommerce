@@ -1,4 +1,4 @@
-import { Alert } from 'bootstrap';
+import { Alert } from 'react-bootstrap';
 import React from 'react'
 
 const MessageComponent = ({ variant, children }) => {

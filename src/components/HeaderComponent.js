@@ -27,7 +27,7 @@ const HeaderComponent = () => {
             </LinkContainer>
             <LinkContainer to={"/register"}>
               <Nav.Link>
-                <i class="fas fa-user-plus"></i> Register
+                <i className="fas fa-user-plus"></i> Register
               </Nav.Link>
             </LinkContainer>
             <NavDropdown title="My Profile" id="collasible-nav-dropdown">

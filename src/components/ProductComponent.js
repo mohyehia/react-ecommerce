@@ -6,19 +6,19 @@ import { Rating } from "./RatingComponent";
 const ProductComponent = ({ product }) => {
   return (
     <Card className="my-3 p-3 rounded">
-      <Link to={`/product/${product.id}`}>
+      <Link to={`/product/${product.productId}`}>
         <Card.Img src={product.imageUrl} variant="top" />
       </Link>
       <Card.Body>
-        <Link to={`/product/${product.id}`}>
+        <Link to={`/product/${product.productId}`}>
           <Card.Title as="div">
-            <strong>{product.name}</strong>
+            <strong>{product.productName}</strong>
           </Card.Title>
         </Link>
         <Card.Text as="div">
-          <Rating value={product.rating} numReviews={product.numReviews} />
+          <Rating value={product.rating} numReviews={product.numberOfReviews} />
         </Card.Text>
-        <Card.Text as="h3">${product.price}</Card.Text>
+        <Card.Text as="h3">${product.productPrice}</Card.Text>
       </Card.Body>
     </Card>
   );
